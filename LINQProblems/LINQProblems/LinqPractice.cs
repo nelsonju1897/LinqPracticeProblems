@@ -54,21 +54,15 @@ namespace LINQProblems
                 Console.WriteLine(name);
             }
             Console.ReadLine();
+
         }
 
         public void ReturnClassAverage()
         {
-            //foreach (var item in classGrades)
-            //{
-            //    List<string> itemssplit = item.Split(',').ToList();
-            //    Console.WriteLine(item);
-            //    Console.ReadLine();
-            //}
             var grades = classGrades;
-            var dropLowestForEachStudent = classGrades.Select(s => s.Split(',').Select(l => Convert.ToInt32(l)).ToList().OrderByDescending(n => n).Take(classGrades.Count() - 1).ToList());
-            Console.WriteLine(classGrades);
+            var dropLowestForEachStudent = classGrades.Select(s => s.Split(',').Select(l => Convert.ToInt32(l)).ToList().OrderByDescending(n => n).Take(4).ToList().Average()).Average();
+            Console.WriteLine(dropLowestForEachStudent);
             Console.ReadLine();
-           
         }
 
     } 
