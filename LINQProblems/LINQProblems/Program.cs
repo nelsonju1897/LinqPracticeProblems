@@ -14,6 +14,7 @@ namespace LINQProblems
             linq.ReturnSubstring();
             linq.ReturnNonDuplicateNames();
             linq.ReturnClassAverage();
+            linq.AlphabeticallyOrderedStringFrequency();
         }
     }
 }
