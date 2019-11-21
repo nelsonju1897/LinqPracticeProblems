@@ -69,10 +69,14 @@ namespace LINQProblems
         public void AlphabeticallyOrderedStringFrequency()
         {
 
-            var result = name.ToLower().GroupBy(x => x).Where(x => x.Key != ' ').Select(x => $"{x.Key} = {x.Count()}").OrderBy(c => c);
-
-
-            Console.WriteLine(result);
+            //var result = name.ToLower().GroupBy(x => x).Where(x => x.Key != ' ').Select(x => $"{x.Key} = {x.Count()}").OrderBy(c => c);
+            var newResult = name.ToLower().GroupBy(x => x).Where(x => x.Key != ' ').Select(x => $"{x.Count()}").Zip(name, (first, second) => first + second + "|").OrderBy(c => c);
+            string finalResult = "";
+            foreach(string thing in newResult)
+            {
+                finalResult += thing;
+            }
+            Console.WriteLine(finalResult);
             Console.ReadLine();
         }
     }
